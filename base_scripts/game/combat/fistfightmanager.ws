@@ -2,7 +2,7 @@
 /** Witcher Script file
 /***********************************************************************/
 /** Fistfight manager
-/** Copyright © 2010
+/** Copyright ï¿½ 2010
 /***********************************************************************/
 
 class W2FistfightManager extends CStateMachine
@@ -477,7 +477,7 @@ state Combat in W2FistfightManager
 		else
 		{
 			m_keyAttackFast = 'Dodge';
-			m_keyBlock = 'GuiCharacterDowngrade';
+			m_keyBlock = 'GuiExit';
 			m_keyRecounter = 'AttackFast';
 		}
 		
@@ -921,9 +921,9 @@ state Combat in W2FistfightManager
 		{
 			output = 'Dodge';
 			m_keyAttackFast = 'Dodge';
-			if ( m_lastButton == 'Dodge' ) {output = 'GuiCharacterDowngrade'; m_keyAttackFast = 'GuiCharacterDowngrade'; }
+			if ( m_lastButton == 'Dodge' ) {output = 'GuiExit'; m_keyAttackFast = 'GuiExit'; }
 			rand = RandRangeF(0, 40);
-			if ( rand > 10 && m_lastButton != 'GuiCharacterDowngrade' ){ output = 'GuiCharacterDowngrade'; m_keyAttackFast = 'GuiCharacterDowngrade'; }
+			if ( rand > 10 && m_lastButton != 'GuiExit' ){ output = 'GuiExit'; m_keyAttackFast = 'GuiExit'; }
 			if ( rand > 20 && m_lastButton != 'AttackFast' ) {output = 'AttackFast'; m_keyAttackFast = 'AttackFast'; }
 			if ( rand > 30 && m_lastButton != 'AttackStrong' ) {output = 'AttackStrong'; m_keyAttackFast = 'AttackStrong'; }
 			if ( performKnockdown ){ output = 'Dodge'; m_keyAttackFast = 'Dodge'; }
@@ -945,7 +945,7 @@ state Combat in W2FistfightManager
 		else
 		{
 			if ( buttonName == 'AttackFast') output = QTEPosition_West;
-			if ( buttonName == 'GuiCharacterDowngrade') output = QTEPosition_East;
+			if ( buttonName == 'GuiExit') output = QTEPosition_East;
 			if ( buttonName == 'AttackStrong') output = QTEPosition_North;
 			if ( buttonName == 'Dodge') output = QTEPosition_South;
 		}
